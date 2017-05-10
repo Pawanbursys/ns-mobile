@@ -109,6 +109,7 @@
 			var deferred = $q.defer();
 			console.log("called preloadDataBase", self.db());
 			this.createTable().then(function () {
+				console.log("createTable success");
 				self.insertData().then(function () {
 					deferred.resolve("OK");
 				});
@@ -118,23 +119,20 @@
 		};
 
 		self.createTable = function (enableLog) {
-			var deferred = $q.defer();
-			//console.log("called createTable");
+			var deferred = $q.defer();		
 			$http.get('scripts/create.sql').success(function (data) {
 				var statements = data.split(";");
-				//console.log(statements.length);
-
+	
 					self.db().transaction(function (tx) {
-							console.log("tx",tx);
+						
 							for (var i = 0; i < statements.length; i++) {
 								var statement = statements[i].trim();
 								if (statement !== '') {
-										var query = statement.replace(/\n/g, " ")+";";
-										console.log("query",query);
+										var query = statement.replace(/\n/g, " ")+";";																	
 										tx.executeSql(query);
 								}
 							}
-						
+						deferred.resolve("OK");
 								
 					}, function (error) {
 						deferred.reject(error);
@@ -149,9 +147,30 @@
 			};
 
 			self.insertData = function (enableLog) {
+				console.log("called insertData");			
 				var deferred = $q.defer();
-				console.log("called insertData");
-				deferred.resolve("OK");
+		
+			    $http.get('scripts/insert.sql').success(function (data) {
+				var statements = data.split(";");				
+					self.db().transaction(function (tx) {							
+							for (var i = 0; i < statements.length; i++) {
+								var statement = statements[i].trim();
+								if (statement !== '') {
+										var query = statement.replace(/\n/g, " ")+";";									
+										console.log(query);		
+										tx.executeSql(query);
+								}
+							}
+						
+						
+					}, function (error) {
+						deferred.reject(error);
+					}, function () {
+						if (enableLog) console.log('%c ***************** Completing the creation of the database in the browser ***************** ', 'background: #222; color: #bada55');
+						deferred.resolve("OK");
+					});
+	
+				});
 
 				return deferred.promise;
 			};

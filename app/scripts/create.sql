@@ -146,7 +146,7 @@ CREATE TABLE mail_mailing (
   IS_COPALENABLE bit(1) DEFAULT '0',
   USPS_REPORT_STATUS varchar(20)  DEFAULT NULL,
   JOB_ID varchar(30)  DEFAULT NULL
-)
+);
 
 DROP TABLE IF EXISTS anl_analysis;
 CREATE TABLE anl_analysis (
