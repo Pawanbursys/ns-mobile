@@ -1,0 +1,108 @@
+<ion-view view-title="Barcode Search" class="dashboard-view">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+				</button>
+  </ion-nav-buttons>
+  <ion-content class="background_color">
+
+
+    <div class="custom_div">
+      <input class="custom_input" type="text" placeholder="Search" ng-model="input_value">
+      <img ng-if="!input_value" class="icon_main" src="img/scan-icon.png" ng-click="showFromDb()">
+      <img ng-if="input_value" class="icon_main" src="img/search-icon.png" ng-click="onSearchBtnClick()">
+    </div>
+
+    <div class="custom_div" ng-if="!show_details && input_value">
+      <div class="custom_div custom_div_details" style="padding: 5px 10px;font-size: 12px">
+        <a class="icon-left ion-email custom_icon"></a><span class="custom_text_small">Mailing Information</span><br>
+     
+ <div class="container">
+              <div class="col-12 row">
+                <div class="col-4 padding_div_left">
+                  <label class="custom_label_details">Mailing Name</label> </div>
+                <div class="col-1" style="padding-left: 3.5%;">
+                  |
+                </div>
+                <div class="col-7">
+                  <span>SC_BH_EngTest</span> </div>
+              </div>
+            </div>
+             <div class="container">
+              <div class="col-12 row">
+                <div class="col-4 padding_div_left">
+                  <label class="custom_label_details">Mail Class</label> </div>
+                <div class="col-1" style="padding-left: 3.5%;">
+                  |
+                </div>
+                <div class="col-7">
+                  <span>First Class Letter</span> </div>
+              </div>
+            </div>
+             <div class="container">
+              <div class="col-12 row">
+                <div class="col-4 padding_div_left">
+                  <label class="custom_label_details">Mailing Date</label> </div>
+                <div class="col-1" style="padding-left: 3.5%;">
+                  |
+                </div>
+                <div class="col-7">
+                  <span>2016-12-21</span> </div>
+              </div>
+            </div>
+
+
+          </div>
+            </div>
+          
+
+
+        <div class="custom_div" ng-if="!show_details && input_value">
+          <div class="custom_div custom_div_details" style="padding: 5px 10px;font-size: 12px">
+            <a class="icon-left ion-clipboard custom_icon"></a><span class="custom_text_small">Tray Information</span><br>
+
+            <div class="container">
+              <div class="col-12 row">
+                <div class="col-4 padding_div_left">
+                  <label class="custom_label_details">Associated Tray</label> </div>
+                <div class="col-1" style="padding-left: 3.5%;">
+                  |
+                </div>
+                <div class="col-7">
+                  <span>FCM LTR 5D BC-WHEELING il 60090</span> </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="custom_div" ng-if="!show_details && input_value">
+          <div class="custom_div custom_div_details" style="padding: 5px 10px;font-size: 12px">
+            <a class="icon-left icon ion-social-buffer custom_icon"></a><span class="custom_text_small">Pallet Information</span><br>
+
+            <div class="container">
+              <div class="col-12 row">
+                <div class="col-4 padding_div_left">
+                  <label class="custom_label_details" style="width:100% !important">Associated Pallet</label>
+                </div>
+                <div class="col-1" style="padding-left: 3.5%;">
+                  |
+                </div>
+                <div class="col-7">
+                  <span>FCM LTR 5D BC-WHEELING il 60090</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+  </ion-content>
+  <ion-footer-bar style="background: #22364d;">
+   	<div style="width: 100%;" class="col-12 row">
+			<h6 class="col-6" style="float: left;padding: 2px ;color: #fff">@2017 Bell and Howell, LLC.</h6>
+			<h6 class="col-6" style="float: right;padding: 2px;color: #fff;text-align: right;">Version: 1.0123</h6>
+		</div>
+  </ion-footer-bar>
+</ion-view>

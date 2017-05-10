@@ -1,0 +1,47 @@
+<ion-side-menus  enable-menu-with-back-views="false">
+	<ion-side-menu-content >
+		<ion-nav-bar class="bar-light">
+			<ion-nav-back-button>
+			</ion-nav-back-button>
+			<ion-nav-buttons side="right">
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+				</button>
+			</ion-nav-buttons>
+			<!--<ion-nav-buttons side="right">
+				<button class="button button-icon button-clear ion-more" ng-click="openPopover($event)">
+				</button>
+			</ion-nav-buttons>-->
+		</ion-nav-bar>
+		<ion-nav-view  name="viewContent" animation="slide-left-right"></ion-nav-view>
+	</ion-side-menu-content>
+	<ion-side-menu  side="right" class="menu">
+		<ion-header-bar ui-sref="app.dashboard" menu-close nav-direction="enter" nav-clear>
+			<!--<ion-item class="item item-thumbnail-left">
+				<img src="img/benderface.png" alt="Fry" class="animated">
+				<h2>Bender</h2>
+				<p>By Nicholls</p>
+			</ion-item>-->
+			<div style="text-align: center">
+				<img src="img/bell-logo.png"  alt="logo" class="animated" style="margin-top: 15%"> 
+			
+		</div>
+				
+		</ion-header-bar>
+		<ion-content class="has-header background_color">
+			<!--<ion-list>
+			<ion-item ng-repeat="item in items" menu-close nav-direction="enter" ui-sref="app.item({ title: item.title, icon: item.icon, color: item.color })" class="item item-icon-right" ui-sref-active="active">
+                    {{item.title}}
+                    <i class="icon ion-chevron-right"></i>
+				</ion-item>
+			</ion-list>-->
+		</ion-content>
+		<!--<ion-footer-bar class="bar-light">-->
+			<ion-footer-bar style="background-color: #22364d;background-image: none">
+
+			<div class="button-bar"  style="background-color: #22364d; padding-left: 10px;
+    		padding-right: 10px;">
+				<button class="button  btnCustom" on-tap="exitApp()">Logout</button>
+			</div>
+		</ion-footer-bar>
+	</ion-side-menu>
+</ion-side-menus>
