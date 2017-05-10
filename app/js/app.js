@@ -26,7 +26,9 @@ angular.module('App', ['ionic', 'ngCordova', 'ngAnimate'])
     }
 		
     //Load the Pre-populated database, debug = true
-    $sqliteService.preloadDataBase(true);
+    $sqliteService.preloadDataBase(true).then(function(){
+      console.log("loading database done");
+    });
   });
 }])
 .config(['$stateProvider',

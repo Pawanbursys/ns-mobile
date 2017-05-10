@@ -31,13 +31,12 @@ var paths = {
     //Destination folders
     destImages: './www/img/',
     destTemplates: './www/templates/',
-    css:'app/css/**/*',
-    database:'app/netsort.db'
+    css:'app/css/**/*'
 };
 
-gulp.task('serve:before', ['watch']);
+gulp.task('serve:before', ['default','watch']);
 
-gulp.task('default', ['sass', 'index', 'scripts', 'styles', 'templates', 'images', 'lib','copy']);
+gulp.task('default', ['sass', 'index', 'scripts', 'styles', 'templates', 'images', 'lib','copy','copyDatabasScript']);
 
 gulp.task('serve', function (done) {
     sh.exec('ionic serve', done);
@@ -47,9 +46,8 @@ gulp.task('copy', function () {
    return gulp.src([paths.css]).pipe(gulp.dest('./www/css/'));
 });
 
-gulp.task('copyDatabase', function () {
-    console.log(running);
-   return gulp.src([paths.database]).pipe(gulp.dest('./www/'));
+gulp.task('copyDatabasScript', function () {   
+   return gulp.src(['app/scripts/**/*']).pipe(gulp.dest('./www/scripts/'));
 });
 
 gulp.task('sass', function (done) {
